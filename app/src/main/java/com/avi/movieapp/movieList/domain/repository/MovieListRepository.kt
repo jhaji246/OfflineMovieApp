@@ -12,6 +12,4 @@ interface MovieListRepository {
     ): Flow<Resource<List<Movie>>>
 
     suspend fun getMovie(id: Int): Flow<Resource<Movie>>
-
-    suspend fun searchMovies(query: String): List<Movie>
 }

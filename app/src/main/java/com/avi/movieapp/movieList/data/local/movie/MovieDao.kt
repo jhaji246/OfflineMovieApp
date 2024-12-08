@@ -17,6 +17,4 @@ interface MovieDao {
     @Query("SELECT * FROM MovieEntity WHERE category = :category")
     suspend fun getMovieListByCategory(category: String): List<MovieEntity>
 
-    @Query("SELECT * FROM MovieEntity WHERE title LIKE :query")
-    suspend fun searchMovies(query: String): List<Movie>
 }

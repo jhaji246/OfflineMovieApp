@@ -2,14 +2,11 @@ package com.avi.movieapp.movieList.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.avi.movieapp.movieList.domain.model.Movie
 import com.avi.movieapp.movieList.domain.repository.MovieListRepository
-import com.avi.movieapp.movieList.domain.usecase.SearchMoviesUseCase
 import com.avi.movieapp.movieList.util.Category
 import com.avi.movieapp.movieList.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
@@ -19,29 +16,15 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieListViewModel @Inject constructor(
     private val movieListRepository: MovieListRepository,
-    private val searchMoviesUseCase: SearchMoviesUseCase
 ) : ViewModel() {
 
     private var _movieListState = MutableStateFlow(MovieListState())
     val movieListState = _movieListState.asStateFlow()
 
-    // search
-    private val _searchResults = MutableStateFlow<List<Movie>>(emptyList())
-    val searchResults: StateFlow<List<Movie>> = _searchResults
-
-    fun searchMovies(query: String) {
-        viewModelScope.launch {
-            val results = searchMoviesUseCase(query)
-            _searchResults.value = results
-        }
-    }
-
     init {
         getPopularMovieList(false)
         getUpcomingMovieList(false)
     }
-
-
 
     fun onEvent(event: MovieListUiEvent) {
         when (event) {
