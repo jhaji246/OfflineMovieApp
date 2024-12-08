@@ -98,4 +98,8 @@ class MovieListRepositoryImpl @Inject constructor(
 
         }
     }
+
+    override suspend fun searchMovies(query: String): List<Movie> {
+        return movieDatabase.movieDao.searchMovies("%$query%")
+    }
 }
