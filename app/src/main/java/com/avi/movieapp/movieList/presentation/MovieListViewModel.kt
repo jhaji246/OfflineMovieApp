@@ -86,6 +86,7 @@ class MovieListViewModel @Inject constructor(
         }
     }
 
+    // Upcoming movie
     private fun getUpcomingMovieList(forceFetchFromRemote: Boolean) {
         viewModelScope.launch {
             _movieListState.update {
