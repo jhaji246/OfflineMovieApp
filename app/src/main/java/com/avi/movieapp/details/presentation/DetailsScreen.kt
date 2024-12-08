@@ -49,15 +49,13 @@ fun DetailsScreen() {
 
     val backDropImageState = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(MovieApi.IMAGE_BASE_URL + detailsState.movie?.backdrop_path)
-            .size(Size.ORIGINAL)
+            .data(MovieApi.IMAGE_BASE_URL + detailsState.movie?.backdrop_path).size(Size.ORIGINAL)
             .build()
     ).state
 
     val posterImageState = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(MovieApi.IMAGE_BASE_URL + detailsState.movie?.poster_path)
-            .size(Size.ORIGINAL)
+            .data(MovieApi.IMAGE_BASE_URL + detailsState.movie?.poster_path).size(Size.ORIGINAL)
             .build()
     ).state
 
@@ -147,12 +145,10 @@ fun DetailsScreen() {
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Row(
-                        modifier = Modifier
-                            .padding(start = 16.dp)
+                        modifier = Modifier.padding(start = 16.dp)
                     ) {
                         RatingBar(
-                            starsModifier = Modifier.size(18.dp),
-                            rating = movie.vote_average / 2
+                            starsModifier = Modifier.size(18.dp), rating = movie.vote_average / 2
                         )
 
                         Text(

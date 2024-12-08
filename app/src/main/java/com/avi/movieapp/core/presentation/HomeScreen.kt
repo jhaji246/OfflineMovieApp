@@ -47,9 +47,6 @@ fun HomeScreen(navController: NavHostController) {
     val movieListState = movieListViewModel.movieListState.collectAsState().value
     val bottomNavController = rememberNavController()
 
-    // Observe the movies and search query states
-
-
     Scaffold(bottomBar = {
         BottomNavigationBar(
             bottomNavController = bottomNavController, onEvent = movieListViewModel::onEvent

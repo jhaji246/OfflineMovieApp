@@ -49,7 +49,7 @@ import com.avi.movieapp.movieList.util.getAverageColor
 @Composable
 fun MovieItem(
     movie: Movie,
-    navHostController: NavHostController
+    navHostController: NavHostController,
 ) {
     val imageState = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
@@ -126,7 +126,7 @@ fun MovieItem(
             maxLines = 1
         )
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, bottom = 12.dp, top = 4.dp)

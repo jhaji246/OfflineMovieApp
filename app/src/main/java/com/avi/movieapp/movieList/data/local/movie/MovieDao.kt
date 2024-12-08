@@ -3,7 +3,6 @@ package com.avi.movieapp.movieList.data.local.movie
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
-import com.avi.movieapp.movieList.domain.model.Movie
 
 @Dao
 interface MovieDao {

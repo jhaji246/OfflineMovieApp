@@ -28,6 +28,10 @@ class MovieListViewModel @Inject constructor(
 
     fun onEvent(event: MovieListUiEvent) {
         when (event) {
+            is MovieListUiEvent.UpdateSearchQuery -> {
+                _movieListState.value = _movieListState.value.copy(searchQuery = event.query)
+            }
+
             MovieListUiEvent.Navigate -> {
                 _movieListState.update {
                     it.copy(

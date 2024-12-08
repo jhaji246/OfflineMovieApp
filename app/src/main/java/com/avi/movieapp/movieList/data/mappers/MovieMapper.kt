@@ -5,7 +5,7 @@ import com.avi.movieapp.movieList.data.remote.respond.MovieDto
 import com.avi.movieapp.movieList.domain.model.Movie
 
 fun MovieDto.toMovieEntity(
-    category: String
+    category: String,
 ): MovieEntity {
     return MovieEntity(
         adult = adult ?: false,
@@ -33,7 +33,7 @@ fun MovieDto.toMovieEntity(
 }
 
 fun MovieEntity.toMovie(
-    category: String
+    category: String,
 ): Movie {
     return Movie(
         backdrop_path = backdrop_path,

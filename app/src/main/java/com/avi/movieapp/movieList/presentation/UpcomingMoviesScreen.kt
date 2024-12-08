@@ -20,7 +20,7 @@ import com.avi.movieapp.movieList.util.Category
 fun UpcomingMoviesScreen(
     movieListState: MovieListState,
     navController: NavHostController,
-    onEvent: (MovieListUiEvent) -> Unit
+    onEvent: (MovieListUiEvent) -> Unit,
 ) {
 
     if (movieListState.upcomingMovieList.isEmpty()) {
